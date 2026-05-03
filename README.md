@@ -52,8 +52,8 @@ This repository serves as:
 
 - A demonstration of applied skills in AI, IoT, and Edge Computing  
 - A centralized academic portfolio for course evaluation  
-- A professional showcase** for internships, job applications, and future research  
-- A*reference library for future projects in embedded AI and IIoT  
+- A professional showcase for internships, job applications, and future research  
+- A reference library for future projects in embedded AI and IIoT  
 
 ---
 
