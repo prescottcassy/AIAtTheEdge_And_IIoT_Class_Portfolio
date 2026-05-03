@@ -18,38 +18,6 @@ This repository contains multiple independent projects, each representing a core
 | Case Study: Autonomous Guided Vehicles (AGVs) | A research‑driven analysis of AGV systems, safety, and AI‑enabled navigation. | Technical writing, robotics concepts, safety frameworks |
 | Edge AI & IoT Development Tools Report | A comparative analysis of modern tools used in edge AI development. | Research, evaluation, technical communication |
 
----
-
-## Core Competencies Demonstrated
-
-### 1. Edge AI Development
-- Sensor data processing  
-- On‑device inference  
-- Lightweight ML workflows  
-- Real‑time constraints  
-
-### 2. Industrial IoT Systems
-- Telemetry ingestion (MQTT, HTTP, REST)  
-- Cloud dashboards (ThingsBoard)  
-- Device provisioning & security  
-- Data modeling and visualization  
-
-### 3. Generative AI & RAG
-- Document retrieval pipelines  
-- LLM‑based verification  
-- JSON‑structured outputs  
-- Prompt engineering  
-
-### 4. Cybersecurity for Edge & IIoT
-- Threat modeling  
-- Secure communication  
-- Device hardening principles  
-
-### 5. Technical Writing & Research
-- Case studies  
-- System documentation  
-- Architecture diagrams  
-- Academic‑level analysis  
 
 ---
 
