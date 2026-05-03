@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+
+  # ── MQTT Broker ─────────────────────────────────────────────
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: glucometer_mqtt
+    ports:
+      - "1884:1883"       # MQTT
+      - "9001:9001"       # WebSocket (optional)
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    restart: unless-stopped
+
+  # ── FastAPI App ──────────────────────────────────────────────
+  fastapi:
+    build: .
+    container_name: glucometer_api
+    ports:
+      - "8081:8000"
+    volumes:
+      - sqlite_data:/app/data          # persist SQLite DB
+    environment:
+      - MQTT_BROKER=mosquitto
+      - MQTT_PORT=1883          # use service name, not 127.0.0.1
+      - DATABASE_URL=sqlite+aiosqlite:///./data/glucometer.db
+      - SYNC_DATABASE_URL=sqlite:///./data/glucometer.db
+    depends_on:
+      - mosquitto
+    restart: unless-stopped
+
+  # ── MQTT Device Simulator (optional) ─────────────────────────
+  # Uncomment to run the simulator as a container too
+  # simulator:
+  #   build: .
+  #   container_name: glucometer_simulator
+  #   command: ["python3", "mqtt_simulator.py"]
+  #   environment:
+  #     - MQTT_BROKER=mosquitto
+  #   depends_on:
+  #     - mosquitto
+  #   restart: unless-stopped
+
+volumes:
+  sqlite_data:
+  mosquitto_data:
+  mosquitto_log:
